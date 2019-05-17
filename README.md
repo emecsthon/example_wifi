@@ -50,7 +50,7 @@ mbed-os
 ```
 * Compile and upload it on the board
 
-### Assempling map
+### Assembling map
 
 * Wait until system initializes and put it in `active` state
 
