@@ -52,7 +52,13 @@ mbed-os
 
 ### Assembling map
 
+![GPIO-left-nucleo-f303re](utils/img/gpio_left.png?raw=true "GPIO-left-nucleo-f303re")
+
+![GPIO-right-nucleo-f303re](utils/img/gpio_right.png?raw=true "GPIO-right-nucleo-f303re")
+
 * Connect ESP8266
+
+![ESP8266-GPIO](utils/img/ESP8266.png?raw=true "ESP8266-GPIO")
 
 | ESP8266  | Nucleo F303 |
 | ------------- | ------------- |
@@ -187,7 +193,7 @@ $ esptool.py --port /dev/ttyACM0 --baud 19200 write_flash --flash_size 1MB --fla
 ```
 
 * Now you should have an updated Frimware on your ESP8266-01
-
+<!--
 ## ESP8266-01 GPIO
 
 ![ESP8266-GPIO](utils/img/ESP8266.png?raw=true "ESP8266-GPIO")
@@ -197,7 +203,7 @@ $ esptool.py --port /dev/ttyACM0 --baud 19200 write_flash --flash_size 1MB --fla
 ![GPIO-left-nucleo-f303re](utils/img/gpio_left.png?raw=true "GPIO-left-nucleo-f303re")
 
 ![GPIO-right-nucleo-f303re](utils/img/gpio_right.png?raw=true "GPIO-right-nucleo-f303re")
-
+-->
 ## Full System view
 
 ![Overview](utils/img/overview.jpg?raw=true "Overview")
