@@ -60,11 +60,11 @@ The system is in the initialization state. During which a Wi-Fi connection to th
 
 ### Slow blinking
 
-Inactive state. Wi-Fi communication is disabled, such that controller won't send any notifications
+*(2 seconds period)* Inactive state. Wi-Fi communication is disabled, such that controller won't send any notifications
 
 ### Fast blinking
 
-Active state. The controller is allowed to communicate through the wifi and ready to send notifications
+*(less than a second period)* Active state. The controller is allowed to communicate through the wifi and ready to send notifications
 
 ### Constantly OFF
 
