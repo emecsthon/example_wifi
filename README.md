@@ -105,6 +105,12 @@ field1=value1&field2=value2
 
 ## Updating ESP8266 Firmware
 
+## Nucleo F303RE headers
+
+![GPIO-left-nucleo-f303re](utils/img/gpio-left.jpg?raw=true "GPIO-left-nucleo-f303re")
+
+![GPIO-right-nucleo-f303re](utils/img/gpio-right.jpg?raw=true "GPIO-right-nucleo-f303re")
+
 ## Full System view
 
 ![Overview](utils/img/overview.jpg?raw=true "Overview")
