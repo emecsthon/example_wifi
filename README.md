@@ -129,6 +129,69 @@ field1=value1&field2=value2
 
 ## Updating ESP8266 Firmware
 
+* Put the ESP8266 device into UART Download mode
+
+| ESP8266  | Nucleo F303 |
+| ------------- | ------------- |
+| VCC  | 3.3V  |
+| GND  | GND  |
+| TX  | D2 (RX) |
+| RX  | D8 (TX)  |
+| GPIO0  | GND  | 
+| GPIO2  | 3.3V  |
+| CH_EN  | 3.3V  |
+| RST  | 3.3V  |
+
+* Install mbed and esp tools on your PC
+
+```
+# pip install mbed
+# pip install esptool
+```
+
+* Check if the device is recognise by the system
+
+```
+# mbedls
+| platform_name | platform_name_unique | mount_point             | serial_port  | target_id | daplink_version |
+|---------------|----------------------|-------------------------|--------------|-----------|-----------------|
+| NUCLEO        | NUCLEO-F303          | /path/to/mount/point    | /dev/ttyACM0 | ....      | 0250            |
+```
+
+* Check the parameters of your ESP8266
+
+```
+$ esptool.py --port /dev/ttyACM0 --baud 115200 flash_id
+esptool.py v2.5.2
+Serial port /dev/ttyACM0
+Connecting......
+Detecting chip type... ESP8266
+Chip is ESP8266EX
+Features: WiFi
+MAC: XX:XX:XX:XX:XX:XX
+Uploading stub...
+Running stub...
+Stub running...
+Manufacturer: 1c
+Device: 3014
+Detected flash size: 1MB  <-- In our case it is 1MByte  = 8 Mbits
+Hard resetting via RTS pin...
+```
+
+* Download new Firmware from the official website [here](https://www.espressif.com/sites/default/files/ap/ESP8266_AT_Bin_V1.6.2_0.zip)
+
+* Flash the Firmware
+
+```
+$ esptool.py --port /dev/ttyACM0 --baud 19200 write_flash --flash_size 1MB --flash_mode dio 0x00000 boot_v1.6.bin 0x01000 at/512+512/user1.1024.new.2.bin 0xFC000 esp_init_data_default_v08.bin 0x7E000 blank.bin 0xFE000 blank.bin
+```
+
+* Now you should have an updated Frimware on your ESP8266-01
+
+## ESP8266-01 GPIO
+
+![ESP8266-GPIO](utils/img/ESP8266.jpg?raw=true "ESP8266-GPIO")
+
 ## Nucleo F303RE headers
 
 ![GPIO-left-nucleo-f303re](utils/img/gpio_left.png?raw=true "GPIO-left-nucleo-f303re")
