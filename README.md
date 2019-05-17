@@ -40,7 +40,7 @@ mbed-os
 * Import `main.cpp` (or copy it)
 * Put the credentials of your Wi-Fi in `mbedos-app.jsom` and change the address of your POST request in `main.cpp`
 ```
-    char sbuffer_window_opened[] = "POST /path/to/form-to-emails.php HTTP/1.1\r\nHost: HOST_NAME\r\nContent-Type: ...
+    char sbuffer_window_opened[] = "POST /path/to/form-to-emails.php HTTP/1.1\r\nHost: HOST_NAME ...
 ```
 ```
     result = socket.connect("IP_ADDRESS", 80);
@@ -52,7 +52,7 @@ mbed-os
 
 ### Assembling map
 
-* Wait until system initializes and put it in `active` state
+* Wait until system initializes and put it in `active` state. (See *Troubleshooting* if it can't be reached) 
 
 ## Functionality
 
@@ -84,7 +84,7 @@ Here, several typical error sources and their troubleshooting methods are outlin
 
 ### Serial bus
 
-The easiest way to troubleshoot the unexpected behaviour is to observe the output of the system by connecting it to the terminal via the serial bus. By default all AT comunication with WiFi module are mirrored into the serial connection to the PC. Thus, the wrong credentials can be diagnosed if Wi-Fi connection isn't establishing.
+First order of busyness is to check if ESP8266 is talking to the MCU. The easiest way to determine this is to observe the output of the system by connecting it to the terminal via the serial bus. By default all AT comunication with WiFi module are mirrored into the serial connection to the PC. Thus, if you can't see the responce, the link between them doesn't exist. One way to resolve this is to check the pin connection or update ESP8266 Firmware *(See below)*. If the wrong credentials were put, Wi-Fi module wouldn't return`WIFI CONNECTED`.
 
 ### Requests
 
@@ -103,9 +103,13 @@ Content-Length: 27
 field1=value1&field2=value2
 ```
 
-### ESP8266 Firmware version
+## Updating ESP8266 Firmware
 
-### Authors
+## Full System view
+
+![Overview](utils/img/overview.jpg?raw=true "Overview")
+
+## Authors
 [Kirill Bykov](https://github.com/kibk/)
 
 
