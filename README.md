@@ -18,7 +18,12 @@ The are two parts of the system: MBED code for the MCU and Mailing webserver. MC
 
 * Create a webserver
 
-In order to provide a reliable mailing system a dedicated webserver is required. It can be hosted locally or remotly. One of the ways to create a local host is to use [php.net](https://www.php.net/manual/en/install.unix.debian.php) or use a remote hosting platforms. Second one is preferable, because it provide lower probability of your emails getting into the spam folder
+In order to provide a reliable mailing system a dedicated webserver is required. It can be hosted locally or remotly. Even though local webserver is not recommended for sending emails, there are ways of doing it:
+
+1. Windows: [Pegasus Mail](http://www.pmail.com/)
+2. Debian: [php.net](https://www.php.net/manual/en/install.unix.debian.php) + [PHPmailer](https://sourceforge.net/projects/phpmailer/)
+
+or, alternatively, use a remote hosting platforms **(recommentded)**. Second one is preferable, because it provides lower probability of your emails getting into the spam folder
 
 * Copy the code for the POST request to Email at `utils/form-to-emails.php`
 
@@ -44,11 +49,14 @@ mbed-os
     }
 ```
 * Compile and upload it on the board
+
+### Assempling map
+
 * Wait until system initializes and put it in `active` state
 
 ## Functionality
 
-Systtem has two main states (besides sending request and initializing): `active` and `inactive`. `Inactive` state disables Wi-Fi communication to prevent the system from sending notification when they are not required (e.g. when you are at home). The only user button is used to toggle between these states. **It is important to note** that the button triggers the **interrupt** which creates an **event**! which is surved in the **main loop**. The routing of sending a request may take a substantial time, thus increasing the chanses of getting another interrupt, if this interrupt stats the sending request routine while previous hasn't beed finished, the integrity will be violated. However by creating an event, incomming interrupt isn't capable to start sending a request before the end of a previous request. 
+Systtem has two main states (besides sending request and initializing): `active` and `inactive`. `Inactive` state disables Wi-Fi communication to prevent the system from sending notification when they are not required (e.g. when you are at home). Oppositely `active` state allows notifying the owner, when the windows open or closes. The only user button is used to toggle between these states. **It is important to note** that the button triggers the **interrupt** which creates an **event**! which is surved in the **main loop**. The routing of sending a request may take a substantial time, thus increasing the chanses of getting another interrupt, if this interrupt stats the sending request routine while previous hasn't beed finished, the integrity will be violated. However by creating an event, incomming interrupt isn't capable to start sending a request before the end of a previous request. 
 
 ## LED
 
@@ -72,17 +80,16 @@ Unsupported state
 
 ## Troublshooting
 
-Several typical error sources are outlined
+Here, several typical error sources and their troubleshooting methods are outlined:
 
 ### Serial bus
 
-The easiest way to troubleshoot the unexpected behaviour is to observe the output of the system by connecting it to the terminal via the serial bus. By default all AT comunication with WiFi module are mirrored into the serial connection to the PC. 
+The easiest way to troubleshoot the unexpected behaviour is to observe the output of the system by connecting it to the terminal via the serial bus. By default all AT comunication with WiFi module are mirrored into the serial connection to the PC. Thus, the wrong credentials can be diagnosed if Wi-Fi connection isn't establishing.
 
 ### Requests
 
-To check the content of the request, we can redirect it to [ptsv2.com](https://ptsv2.com). This way you can see the full dump of the received request.
-
-### TCP requests
+To check the content of the request, we can redirect it to [ptsv2.com](https://ptsv2.com). This way you can see the full dump of the received request. 
+Many times requests are misspelled because they are raw
 
 Example:
 
@@ -95,3 +102,10 @@ Content-Length: 27
 
 field1=value1&field2=value2
 ```
+
+### ESP8266 Firmware version
+
+### Authors
+[Kirill Bykov](https://github.com/kibk/)
+
+
