@@ -14,7 +14,7 @@ EMECSthon example project which is targeted on Wi-Fi functionality. Alarm-like s
 
 The are two parts of the system: MBED code for the MCU and Mailing webserver. MCU will detect that the window was opened and send the correcponsing POST request to the webserver, which will convert it into an email and send it to the owner.
 
-1. PHP Server
+### PHP Server
 
 * Create a webserver
 
@@ -22,7 +22,7 @@ In order to provide a reliable mailing system a dedicated webserver is required.
 
 * Copy the code for the POST request to Email at `utils/form-to-emails.php`
 
-2. MBED. 
+### MBED. 
 
 MBED platform is used to program the MCU
 
