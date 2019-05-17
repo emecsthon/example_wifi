@@ -44,6 +44,31 @@ mbed-os
     }
 ```
 * Compile and upload it on the board
+* Wait until system initializes and put it in `active` state
+
+## Functionality
+
+Systtem has two main states (besides sending request and initializing): `active` and `inactive`. `Inactive` state disables Wi-Fi communication to prevent the system from sending notification when they are not required (e.g. when you are at home). The only user button is used to toggle between these states. **It is important to note** that the button triggers the **interrupt** which creates an **event**! which is surved in the **main loop**. The routing of sending a request may take a substantial time, thus increasing the chanses of getting another interrupt, if this interrupt stats the sending request routine while previous hasn't beed finished, the integrity will be violated. However by creating an event, incomming interrupt isn't capable to start sending a request before the end of a previous request. 
+
+## LED
+
+LED is conviniently used to display the current state of the system. 
+
+### Constantly ON
+
+The system is in the initialization state. During which a Wi-Fi connection to the router is established
+
+### Slow blinking
+
+Inactive state. Wi-Fi communication is disabled, such that controller won't send any notifications
+
+### Fast blinking
+
+Active state. The controller is allowed to communicate through the wifi and ready to send notifications
+
+### Constantly OFF
+
+Unsupported state
 
 ## Troublshooting
 
@@ -51,7 +76,7 @@ Several typical error sources are outlined
 
 ### Serial bus
 
-The easiest way to troubleshoot the unexpected behaviour is to observe the output of the system by connecting it to the terminal via a serial bus. By default all AT comunication with WiFi module are mirrored into the serial connection to the PC. 
+The easiest way to troubleshoot the unexpected behaviour is to observe the output of the system by connecting it to the terminal via the serial bus. By default all AT comunication with WiFi module are mirrored into the serial connection to the PC. 
 
 ### Requests
 
