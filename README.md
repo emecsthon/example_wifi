@@ -18,6 +18,28 @@ The are two parts of the system:
 
 MBED platform is used to program the MCU
 
+* Create empty MBED project [here](https://ide.mbed.com/compiler)
+* Import a project or manually add required libraries:
+```
+
+easy-connect
+mbed-os
+```
+
 2. PHP Server
 
 The PHP capable server is required in order to translate POST request from the MCU to an email. There are many solutions to create it, Code for page PHP example is in `utils/form-to-emails.php`
+
+### TCP requests
+
+Example:
+
+```
+POST /test HTTP/1.1
+Host: foo.example
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 27
+
+
+field1=value1&field2=value2
+```
