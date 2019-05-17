@@ -190,7 +190,7 @@ $ esptool.py --port /dev/ttyACM0 --baud 19200 write_flash --flash_size 1MB --fla
 
 ## ESP8266-01 GPIO
 
-![ESP8266-GPIO](utils/img/ESP8266.jpg?raw=true "ESP8266-GPIO")
+![ESP8266-GPIO](utils/img/ESP8266.png?raw=true "ESP8266-GPIO")
 
 ## Nucleo F303RE headers
 
