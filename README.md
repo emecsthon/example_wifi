@@ -107,9 +107,9 @@ field1=value1&field2=value2
 
 ## Nucleo F303RE headers
 
-![GPIO-left-nucleo-f303re](utils/img/gpio-left.png?raw=true "GPIO-left-nucleo-f303re")
+![GPIO-left-nucleo-f303re](utils/img/gpio_left.png?raw=true "GPIO-left-nucleo-f303re")
 
-![GPIO-right-nucleo-f303re](utils/img/gpio-right.png?raw=true "GPIO-right-nucleo-f303re")
+![GPIO-right-nucleo-f303re](utils/img/gpio_right.png?raw=true "GPIO-right-nucleo-f303re")
 
 ## Full System view
 
