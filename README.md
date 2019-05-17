@@ -48,10 +48,34 @@ mbed-os
         pc.printf("Error! socket.connect() returned: %d\n", result);
     }
 ```
-* Compile and upload it on the board
+* Compile
 
 ### Assembling map
 
+* Connect ESP8266
+
+| ESP8266  | Nucleo F303 |
+| ------------- | ------------- |
+| VCC  | 3.3V  |
+| GND  | GND  |
+| TX  | D2 (RX) |
+| RX  | D8 (TX)  |
+| GPIO0  | 3.3V  | 
+| GPIO2  | 3.3V  |
+| CH_EN  | 3.3V  |
+| RST  | 3.3V  |
+
+* Connect Accelerometer
+
+| ADXL335  | Nucleo F303 |
+| ------------- | ------------- |
+| VCC  | 3.3V  |
+| GND  | GND  |
+| X  | A0  |
+| Y  | A1  |
+| Z  | A2  | 
+
+* Power up and upload it on the board 
 * Wait until system initializes and put it in `active` state. (See *Troubleshooting* if it can't be reached) 
 
 ## Functionality
