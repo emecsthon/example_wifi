@@ -114,7 +114,7 @@ Here, several typical error sources and their troubleshooting methods are outlin
 
 ### Serial bus
 
-First order of busyness is to check if ESP8266 is talking to the MCU. The easiest way to determine this is to observe the output of the system by connecting it to the terminal via the serial bus. By default all AT comunication with WiFi module are mirrored into the serial connection to the PC. Thus, if you can't see the responce, the link between them doesn't exist. One way to resolve this is to check the pin connection or update ESP8266 Firmware *(See below)*. If the wrong credentials were put, Wi-Fi module wouldn't return`WIFI CONNECTED`.
+First order of business is to check if ESP8266 is talking to the MCU. The easiest way to determine this is to observe the output of the system by connecting it to the terminal via the serial bus. By default all AT comunication with WiFi module are mirrored into the serial connection to the PC. Thus, if you can't see the responce, the link between them doesn't exist. One way to resolve this is to check the pin connection or update ESP8266 Firmware *(See below)*. If the wrong credentials were put, Wi-Fi module wouldn't return`WIFI CONNECTED`.
 
 ### Requests
 
